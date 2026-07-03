@@ -1,5 +1,7 @@
 package com.goit.Note.controller;
 
+import com.goit.Note.dto.NoteCreateRequest;
+import com.goit.Note.dto.NoteResponse;
 import com.goit.Note.entity.Note;
 import com.goit.Note.service.NoteService;
 import lombok.RequiredArgsConstructor;
@@ -29,8 +31,8 @@ public class NoteController {
         return noteService.getAll();
     }
     @PostMapping
-    public Note create(@RequestBody Note note){
-        return noteService.create(note);
+    public NoteResponse create(@RequestBody NoteCreateRequest noteCreateRequest){
+        return noteService.create(noteCreateRequest);
     }
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id){
